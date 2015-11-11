@@ -2,13 +2,22 @@
 <html><head>
   <meta charset="utf-8">
   <title>Canvas Background through CSS</title>
+  <script src="js/dropper.js"></script>
   <style type="text/css" media="screen">
-    canvas, img { display:block; margin:1em auto; border:1px solid black; }
+    canvas, img { display:block; z-index:-30; border:1px solid black;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+
+}
     canvas { background:url(static.jpg) }
   </style>
-</head><body>
-
-<canvas width="1300" height="800"></canvas>
-<img>
-
-</body></html>
+</head>
+<body style="margin:0px;height:100px;" onload="init();">
+  <h3>Bomb blast radius checker</h3>
+    <canvas id="graphCanvas" ondrop="drop(event)" ondragover="allowDrop(event)" height=800 width=1000 style="border:1px solid #000000;"></canvas>
+    <p> Select bomb:</p><img id="img1" src="bomb.png" draggable="true" onmousedown="get_pos(event)" ondragstart="drag(event)"/>
+    
+</body>
+</html>
