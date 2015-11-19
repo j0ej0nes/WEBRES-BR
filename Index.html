@@ -15,6 +15,7 @@
 jQuery(document).ready(function(){
      $("#special").click(function(e){
 
+        clear();
         var x = e.pageX - this.offsetLeft;
         var y = e.pageY - this.offsetTop;
 
@@ -33,7 +34,7 @@ jQuery(document).ready(function(){
 
 })
 
-function clear_canvas_width ()
+function clear ()
 {
     var s = document.getElementById ("special");
     var w = s.width;
