@@ -1,23 +1,53 @@
-<!DOCTYPE HTML>
-<html><head>
-  <meta charset="utf-8">
-  <title>Canvas Background through CSS</title>
-  <script src="js/dropper.js"></script>
-  <style type="text/css" media="screen">
-    canvas, img { display:block; z-index:-30; border:1px solid black;
-    padding-left: 0;
-    padding-right: 0;
-    margin-left: auto;
-    margin-right: auto;
+<html>
+<head>
+<style type="text/css" media="screen">
+  canvas, img { display:block; z-index:-30; border:1px solid black;
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: auto;
+  margin-right: auto;
 
 }
-    canvas { background:url(static.jpg) }
+  canvas { background:url(static.jpg) }
   </style>
-</head>
-<body style="margin:0px;height:100px;" onload="init();">
-  <h3>Bomb blast radius checker</h3>
-    <canvas id="graphCanvas" ondrop="drop(event)" ondragover="allowDrop(event)" height=800 width=1000 style="border:1px solid #000000;"></canvas>
-    <p> Select bomb:</p><img id="img1" src="bomb.png" draggable="true" onmousedown="get_pos(event)" ondragstart="drag(event)"/>
-    
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript">
+jQuery(document).ready(function(){
+     $("#special").click(function(e){
+
+        var x = e.pageX - this.offsetLeft;
+        var y = e.pageY - this.offsetTop;
+
+
+        var ctx= this.getContext("2d");
+        ctx.fillStyle = "rgba(255, 255, 0, .5)"
+        ctx.beginPath();
+        ctx.arc(x, y, 70,0, 2*Math.PI);
+        ctx.stroke();
+        ctx.fill();
+
+
+
+        $('#status2').html(x +', '+ y);
+   });
+
+})
+
+function clear_canvas_width ()
+{
+    var s = document.getElementById ("special");
+    var w = s.width;
+    s.width = 10;
+    s.width = w;
+}
+
+</script>
+<body>
+
+  <input type='submit' value='Clear Bombs' onclick='clear_canvas_width ()'>
+  <h2 id="status2">0, 0</h2>
+  <canvas width="1400px" height="800px" style="width: 1400px; height: 800px; border:1px ridge green;" id="special">
+
+
 </body>
 </html>
