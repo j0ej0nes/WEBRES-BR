@@ -11,19 +11,12 @@ This program has certain assumtions about the data provided:
 */
 
 //----------------------------------TESTING-----------------------------------//
+/*
 console.log("dayWind(39, 1.25)");
 dayWind(39, 1.25);
 console.log("dayWind(20, 1.25)");
 dayWind(20, 1.25);
 
-
-var windWeakArray = [];
-
-var windMeduimArray = [];
-
-var windStrongArray = [];
-//an array with each object in the array holding the direction and speed for
-//an hour of weather.
 var windArray = [
                   {dir:60, spd:1},
                   {dir:54, spd:2},
@@ -33,11 +26,41 @@ var windArray = [
 
 console.log("windFromArray(windData)");
 windFromArray(windArray);
+*/
 //----------------------------------------------------------------------------//
+
+//these are 3 presets for the wind, being low, medium and high winds
+//an array with each object in the array holding the direction and speed for
+//an hour of weather.
+var windWeakArray = [
+  {dir:60, spd:1}, {dir:54, spd:2}, {dir:30, spd:1.5}, {dir:60, spd:1},
+  {dir:60, spd:1}, {dir:54, spd:2}, {dir:30, spd:1.5}, {dir:60, spd:1},
+  {dir:60, spd:1}, {dir:54, spd:2}, {dir:30, spd:1.5}, {dir:60, spd:1},
+  {dir:60, spd:1}, {dir:54, spd:2}, {dir:30, spd:1.5}, {dir:60, spd:1},
+  {dir:60, spd:1}, {dir:54, spd:2}, {dir:30, spd:1.5}, {dir:60, spd:1},
+  {dir:60, spd:1}, {dir:54, spd:2}, {dir:30, spd:1.5}, {dir:60, spd:1}
+];
+
+var windMeduimArray = [
+  {dir:260, spd:5}, {dir:254, spd:7.5}, {dir:240, spd:4}, {dir:260, spd:6},
+  {dir:260, spd:5}, {dir:254, spd:7.5}, {dir:240, spd:4}, {dir:260, spd:6},
+  {dir:260, spd:5}, {dir:254, spd:7.5}, {dir:240, spd:4}, {dir:260, spd:6},
+  {dir:260, spd:5}, {dir:254, spd:7.5}, {dir:240, spd:4}, {dir:260, spd:6},
+  {dir:260, spd:5}, {dir:254, spd:7.5}, {dir:240, spd:4}, {dir:260, spd:6},
+  {dir:260, spd:5}, {dir:254, spd:7.5}, {dir:240, spd:4}, {dir:260, spd:6}
+];
+
+var windStrongArray = [
+  {dir:120, spd:12.5}, {dir:134, spd:14}, {dir:140, spd:16}, {dir:122, spd:18},
+  {dir:120, spd:12.5}, {dir:134, spd:14}, {dir:140, spd:16}, {dir:122, spd:18},
+  {dir:120, spd:12.5}, {dir:134, spd:14}, {dir:140, spd:16}, {dir:122, spd:18},
+  {dir:120, spd:12.5}, {dir:134, spd:14}, {dir:140, spd:16}, {dir:122, spd:18},
+  {dir:120, spd:12.5}, {dir:134, spd:14}, {dir:140, spd:16}, {dir:122, spd:18},
+  {dir:120, spd:12.5}, {dir:134, spd:14}, {dir:140, spd:16}, {dir:122, spd:18},
+];
 
 //function loops through array and takes the data for each our
 function windFromArray(windData){
-
   for (var i = 0; i < windData.length; i++){
     console.log("hourWind(windData[i].dir, windData[i].spd): ")
     hourWind(windData[i].dir, windData[i].spd);
