@@ -1,4 +1,4 @@
-/* WEATHER FUNCTIONS TAKE DIRECTION AND
+/* WEATHER FUNCTIONS TAKES DIRECTION AND
 SPEED OF WIND TO CHANGE CLOUD MOVEMENTS
 
 This program has certain assumtions about the data provided:
@@ -17,6 +17,11 @@ console.log("dayWind(20, 1.25)");
 dayWind(20, 1.25);
 
 
+var windWeakArray = [];
+
+var windMeduimArray = [];
+
+var windStrongArray = [];
 //an array with each object in the array holding the direction and speed for
 //an hour of weather.
 var windArray = [
@@ -101,7 +106,7 @@ function calcTri(axis, dir, dist){
   }
 }
 
-//will draw a new circle
+//use Joe's function to draw a new cloud.
 function moveCloud(x, y){
   console.log("x amount: " + x);//Math.round(x));
   console.log("y amount: " + y);//Math.round(y));
