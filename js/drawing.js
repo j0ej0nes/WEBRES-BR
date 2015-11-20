@@ -65,7 +65,7 @@ function noBombSelected(){
 
 function radiusToPixels(radius){
   var canvasPx = document.getElementById('bombCanvas').width;
-  var pixels = canvasPx/50;
+  var pixels = canvasPx/100;
   var pxRadius = pixels * radius;
 
   return pxRadius;
