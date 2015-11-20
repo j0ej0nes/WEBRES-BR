@@ -1,5 +1,6 @@
 <html>
 <head>
+
 <style type="text/css" media="screen">
   canvas, img { display:block; z-index:-30; border:1px solid black;
   padding-left: 0;
@@ -11,44 +12,16 @@
   canvas { background:url(static.jpg) }
   </style>
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
-<script type="text/javascript">
-jQuery(document).ready(function(){
-     $("#special").click(function(e){
-
-        clear();
-        var x = e.pageX - this.offsetLeft;
-        var y = e.pageY - this.offsetTop;
 
 
-        var ctx= this.getContext("2d");
-        ctx.fillStyle = "rgba(255, 255, 0, .5)"
-        ctx.beginPath();
-        ctx.arc(x, y, 70,0, 2*Math.PI);
-        ctx.stroke();
-        ctx.fill();
-
-
-
-        $('#status2').html(x +', '+ y);
-   });
-
-})
-
-function clear ()
-{
-    var s = document.getElementById ("special");
-    var w = s.width;
-    s.width = 10;
-    s.width = w;
-}
-
-</script>
 <body>
 
   <input type='submit' value='Clear Bombs' onclick='clear_canvas_width ()'>
-  <h2 id="status2">0, 0</h2>
-  <canvas width="1400px" height="800px" style="width: 1400px; height: 800px; border:1px ridge green;" id="special">
+  <h2 id="coordsDisplay">0, 0</h2>
+  <canvas width="1400px" height="800px" style="width: 1400px; height: 800px; border:1px ridge green;" id="bombCanvas">
 
 
 </body>
 </html>
+
+<script src="js/drawing.js"></script>
