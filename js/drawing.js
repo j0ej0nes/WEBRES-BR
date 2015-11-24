@@ -44,7 +44,8 @@ $("#bombCanvas").click(function(e){
       noBombSelected();
   }
 
-  windFromArray(chosenWind);
+  //windFromArray(chosenWind);
+  getWeather();
 
 });
 
