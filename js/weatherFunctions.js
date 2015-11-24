@@ -62,7 +62,7 @@ var windStrongArray = [
   {dir:120, spd:12.5}, {dir:134, spd:14}, {dir:140, spd:16}, {dir:122, spd:18},
 ];
 
-var chosenWind = windWeakArray;
+var chosenWind = windStrongArray;
 //function loops through array and takes the data for each our
 function windFromArray(windData){
   for (var i = 0; i < windData.length; i++){
