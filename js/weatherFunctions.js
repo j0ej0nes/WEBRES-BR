@@ -28,12 +28,72 @@ console.log("windFromArray(windData)");
 windFromArray(windArray);
 */
 //----------------------------------------------------------------------------//
+//-------------------------------LIVE WEATHER---------------------------------//
+
+//This is a key required by the api and given to an account
+var openWeatherKey = "f563901b4512d118e1a1f3267c7a32fe";
+var weatherRequest;
+
+function getWeather(){
+  var requestString = "http://api.openweathermap.org/data/2.5/forecast?q=London,GB&APPID=" + openWeatherKey;
+
+  var xhttp = new XMLHttpRequest();
+  xhttp.open("GET", requestString , true);
+  xhttp.onreadystatechange = function(response1){
+    if (xhttp.status == 200 && xhttp.readyState == 4){
+      xhttp.addEventListener("load", proccessResults);
+    }
+  }
+  xhttp.send();
+}
+
+function proccessResults(e){
+  console.log(e.target.responseText);
+  var results = JSON.parse(e.target.responseText);
+  console.log("results: " + results);
+
+  if (results.list.length > 0) {
+    for (var i = 0; i < results.list.length; i++) {
+      hourFromThreeWind(results.list[i].wind.deg, convertSpeed(results.list[i].wind.speed));
+    }
+  }
+  else{
+    noData();
+  }
+}
+
+function convertSpeed(spd){
+  return ((spd*18)/5);
+}
+
+function noData(){
+  console.log("NO DATA RECIEVED");
+}
+
+
+//gets the x and y changes for a 3 hours resulted change from wind
+//function takes the 3 hour forecast from the api
+function threeHourWind(dir, spd){
+  var dist = (spd*3);
+  var x = calcTri("x", dir, dist);
+  var y = calcTri("y", dir, dist);
+  moveCloud(x, y);
+}
+
+function hourFromThreeWind(dir, spd){
+  var dist = (spd/3);
+  var x = calcTri("x", dir, dist);
+  var y = calcTri("y", dir, dist);
+  moveCloud(x, y);
+}
+
+
+
+//----------------------------------------------------------------------------//
 
 //these are 3 presets for the wind, being low, medium and high winds
 //an array with each object in the array holding the direction and speed for
 //an hour of weather.
-
-
 
 var windWeakArray = [
   {dir:60, spd:1}, {dir:54, spd:2}, {dir:30, spd:1.5}, {dir:60, spd:1},
@@ -62,15 +122,20 @@ var windStrongArray = [
   {dir:120, spd:12.5}, {dir:134, spd:14}, {dir:140, spd:16}, {dir:122, spd:18},
 ];
 
+<<<<<<< HEAD
 var chosenWind = windWeakArray;
 //function loops through array and takes the data for each our
+=======
+var chosenWind = windStrongArray;
+//function loops through array and takes the data for each hour
+>>>>>>> refs/remotes/origin/realWeather
 function windFromArray(windData){
   for (var i = 0; i < windData.length; i++){
     hourWind(windData[i].dir, windData[i].spd);
   }
 }
 
-//gets the x and y changes for a 1 day resulted change from wind
+//gets the x and y changes for a 1 hour resulted change from wind
 //function assumes wind data is valid for an hour and unlikely to change.
 function hourWind(dir, spd){
   var dist = spd;
