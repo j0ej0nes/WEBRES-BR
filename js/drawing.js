@@ -61,7 +61,7 @@ function drawCricle(xcoord, ycoord, radius, colour){
 }
 
 function noBombSelected(){
-
+  console.log("no bomb selected");
 }
 
 function radiusToPixels(radius){
