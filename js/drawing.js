@@ -1,8 +1,33 @@
 
 var x;
 var y;
-var chosenBomb = "A";
+var chosenBomb = "B";
+//console.log(chosenBomb);
 var workingRadius;
+
+//console.log(document.getElementById("bombButton1"));
+//document.getElementById("bombButton1").addEventListener('click', console.log("cliked 1"));
+//document.getElementById("bombButton2").addEventListener('click', chooseBomb(2));
+//document.getElementById("bombButton3").addEventListener('click', chooseBomb(3));
+
+
+function chooseBomb(e){
+  switch(e){
+    case 1:
+      chosenBomb = "A";
+      break;
+    case 1:
+      chosenBomb = "A";
+      break;
+    case 1:
+      chosenBomb = "A";
+      break;
+    default:
+      break;
+  }
+  console.log("new bomb: " + chosenBomb);
+
+}
 
 
 //radiation = size of radiation - green

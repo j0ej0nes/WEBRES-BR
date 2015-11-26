@@ -51,9 +51,7 @@ function getWeather(){
 //convert the JSON results to javascript
 //loop through each result and plot on the map
 function proccessResults(e){
-  console.log(e.target.responseText);
   var results = JSON.parse(e.target.responseText);
-  console.log("results: " + results);
 
   if (results.list.length > 0) {
     for (var i = 0; i < results.list.length; i++) {
@@ -93,15 +91,6 @@ function hourFromThreeWind(dir, spd){
   moveCloud(x, y);
 }
 
-//gets the x and y changes for a 1 hour resulted change from wind
-//function assumes wind data is valid for an hour and unlikely to change.
-function hourWind(dir, spd){
-  var dist = spd;
-  var x = calcTri("x", dir, dist);
-  var y = calcTri("y", dir, dist);
-  moveCloud(x, y);
-}
-
 //----------------------------------------------------------------------------//
 
 //these are 3 presets for the wind, being low, medium and high winds
@@ -135,13 +124,9 @@ var windStrongArray = [
   {dir:120, spd:12.5}, {dir:134, spd:14}, {dir:140, spd:16}, {dir:122, spd:18},
 ];
 
-<<<<<<< HEAD
-var chosenWind = windWeakArray;
-//function loops through array and takes the data for each our
-=======
+
 var chosenWind = windStrongArray;
 //function loops through array and takes the data for each hour
->>>>>>> refs/remotes/origin/realWeather
 function windFromArray(windData){
   for (var i = 0; i < windData.length; i++){
     hourWind(windData[i].dir, windData[i].spd);
@@ -214,8 +199,6 @@ function calcTri(axis, dir, dist){
 function moveCloud(xcoord, ycoord){
   var newX = x + radiusToPixels(Math.round(xcoord));
   var newY = y + radiusToPixels(Math.round(ycoord));
-  console.log(radiusToPixels(Math.round(xcoord)));
-  console.log(radiusToPixels(Math.round(ycoord)));
   drawCricle(newX, newY, workingRadius, "rgba(255, 214, 102, 0.1)");
   x = newX;
   y = newY;
