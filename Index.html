@@ -1,27 +1,86 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
 
-<style type="text/css" media="screen">
-  canvas, img { display:block; z-index:-30; border:1px solid black;
-  padding-left: 0;
-  padding-right: 0;
-  margin-left: auto;
-  margin-right: auto;
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="Bomb blast radius checker" content="">
+    <meta name="UPXXXXX" content="">
 
-}
-  canvas { background:url(london-100km.png) }
-  </style>
-<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+    <title>Bomb blast impact</title>
 
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <style>
+    body {
+        padding-top: 70px;
+
+    }
+    canvas, img { display:block; z-index:-30; border:1px solid black;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 80px;
+
+  }
+    canvas { background:url(london-100km.png)
+
+     }
+
+    </style>
+</head>
 
 <body>
 
-  <input type='submit' value='Clear Bombs' onclick='clear_canvas_width ()'>
-  <h2 id="coordsDisplay">0, 0</h2>
-  <canvas width=1000 height=1000 id="bombCanvas">
+    <!-- Main Bomb page -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
 
+            <div class="navbar-header">
+
+                <a class="navbar-brand">WEBRES BR Project</a>
+            </div>
+
+
+
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+      <div class="container">
+
+                  <h4>Select a bomb:</h4>
+
+                    <input type='submit' value='Bomb 1' onclick=>
+                    <input type='submit' value='Bomb 2' onclick=>
+                    <input type='submit' value='Bomb 3' onclick=>
+                    <h2 id="coordsDisplay">0, 0</h2>
+                    <canvas width=1000 height=1000 id="bombCanvas">
+
+
+
+      </div>
+
+
+
+
+
+      <!-- jQuery -->
+      <script src="js/jquery.js"></script>
+
+      <!-- Bootstrap Core JavaScript -->
+      <script src="js/bootstrap.min.js"></script>
+
+  </body>
 
 </body>
+
 </html>
 
 <script src="js/weatherFunctions.js"></script>

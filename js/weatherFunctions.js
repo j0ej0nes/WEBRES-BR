@@ -34,6 +34,7 @@ windFromArray(windArray);
 var openWeatherKey = "f563901b4512d118e1a1f3267c7a32fe";
 var weatherRequest;
 
+//creates a request to get a JSON response of real weather data
 function getWeather(){
   var requestString = "http://api.openweathermap.org/data/2.5/forecast?q=London,GB&APPID=" + openWeatherKey;
 
@@ -47,6 +48,8 @@ function getWeather(){
   xhttp.send();
 }
 
+//convert the JSON results to javascript
+//loop through each result and plot on the map
 function proccessResults(e){
   console.log(e.target.responseText);
   var results = JSON.parse(e.target.responseText);
@@ -62,6 +65,7 @@ function proccessResults(e){
   }
 }
 
+//change from m/s to kmph
 function convertSpeed(spd){
   return ((spd*18)/5);
 }
@@ -74,20 +78,29 @@ function noData(){
 //gets the x and y changes for a 3 hours resulted change from wind
 //function takes the 3 hour forecast from the api
 function threeHourWind(dir, spd){
-  var dist = (spd*3);
+  var dist = (spd);
   var x = calcTri("x", dir, dist);
   var y = calcTri("y", dir, dist);
   moveCloud(x, y);
 }
 
 function hourFromThreeWind(dir, spd){
-  var dist = (spd/3);
+  var dist = (spd);
+  var x = (calcTri("x", dir, dist)/3);
+  var y = (calcTri("y", dir, dist)/3);
+  moveCloud(x, y);
+  moveCloud(x, y);
+  moveCloud(x, y);
+}
+
+//gets the x and y changes for a 1 hour resulted change from wind
+//function assumes wind data is valid for an hour and unlikely to change.
+function hourWind(dir, spd){
+  var dist = spd;
   var x = calcTri("x", dir, dist);
   var y = calcTri("y", dir, dist);
   moveCloud(x, y);
 }
-
-
 
 //----------------------------------------------------------------------------//
 
@@ -122,8 +135,13 @@ var windStrongArray = [
   {dir:120, spd:12.5}, {dir:134, spd:14}, {dir:140, spd:16}, {dir:122, spd:18},
 ];
 
+<<<<<<< HEAD
+var chosenWind = windWeakArray;
+//function loops through array and takes the data for each our
+=======
 var chosenWind = windStrongArray;
 //function loops through array and takes the data for each hour
+>>>>>>> refs/remotes/origin/realWeather
 function windFromArray(windData){
   for (var i = 0; i < windData.length; i++){
     hourWind(windData[i].dir, windData[i].spd);
@@ -198,7 +216,7 @@ function moveCloud(xcoord, ycoord){
   var newY = y + radiusToPixels(Math.round(ycoord));
   console.log(radiusToPixels(Math.round(xcoord)));
   console.log(radiusToPixels(Math.round(ycoord)));
-  drawCricle(newX, newY, workingRadius, "rgba(255, 214, 102, 0.2)");
+  drawCricle(newX, newY, workingRadius, "rgba(255, 214, 102, 0.1)");
   x = newX;
   y = newY;
 }
