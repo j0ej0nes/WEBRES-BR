@@ -36,6 +36,7 @@ function chooseBomb(e){
 var LittleBoy = {Injuries:1.9, Radiation:1.3, Death:1.2};
 var Davy = {Injuries:0.09, Radiation:0.5, Death:0.4};
 var Hellfire = {Injuries:0.015, Radiation:0, Death:0.020};
+var IvyMike = {Injuries:16, Radiation:6, Death:3.2};
 
 
 $("#bombCanvas").click(function(e){
@@ -60,10 +61,10 @@ $("#bombCanvas").click(function(e){
       workingRadius = Davy.Injuries;
       break;
     case "C":
-      drawCricle(x, y, Hellfire.Injuries, "rgba(84, 9, 163, 0.5)");
-      drawCricle(x, y, Hellfire.Radiation, "rgba(84, 77, 214, 0.5)");
-      drawCricle(x, y, Hellfire.Death, "rgba(84, 214, 9, 0.5)");
-      workingRadius = Hellfire.Injuries;
+      drawCricle(x, y, IvyMike.Injuries, "rgba(84, 9, 163, 0.5)");
+      drawCricle(x, y, IvyMike.Radiation, "rgba(84, 77, 214, 0.5)");
+      drawCricle(x, y, IvyMike.Death, "rgba(84, 214, 9, 0.5)");
+      workingRadius = IvyMike.Injuries;
       break;
     default:
       noBombSelected();
