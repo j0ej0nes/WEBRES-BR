@@ -1,0 +1,13 @@
+body {
+  padding-top: 70px;
+}
+canvas, img { display:block; z-index:-30; border:1px solid black;
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 80px;
+}
+canvas {
+  background:url(../london-100km.png)
+}
