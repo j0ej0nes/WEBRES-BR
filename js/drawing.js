@@ -55,15 +55,15 @@ $("#bombCanvas").click(function(e){
       workingRadius = LittleBoy.Injuries;
       break;
     case "B":
-      drawCricle(x, y, Davy.Injuries, "rgba(84, 9, 163, 0.5)");
-      drawCricle(x, y, Davy.Radiation, "rgba(84, 77, 214, 0.5)");
-      drawCricle(x, y, Davy.Death, "rgba(84, 214, 9, 0.5)");
+      drawCricle(x, y, Davy.Injuries, "rgba(9, 156, 214, 0.5)");
+      drawCricle(x, y, Davy.Radiation, "rgba(101, 214, 9, 0.5)");
+      drawCricle(x, y, Davy.Death, "rgba(214, 9, 9, 0.5)");
       workingRadius = Davy.Injuries;
       break;
     case "C":
-      drawCricle(x, y, IvyMike.Injuries, "rgba(84, 9, 163, 0.5)");
-      drawCricle(x, y, IvyMike.Radiation, "rgba(84, 77, 214, 0.5)");
-      drawCricle(x, y, IvyMike.Death, "rgba(84, 214, 9, 0.5)");
+      drawCricle(x, y, IvyMike.Injuries, "rgba(9, 156, 214, 0.5)");
+      drawCricle(x, y, IvyMike.Radiation, "rgba(101, 214, 9, 0.5)");
+      drawCricle(x, y, IvyMike.Death, "rgba(214, 9, 9, 0.5)");
       workingRadius = IvyMike.Injuries;
       break;
     default:
