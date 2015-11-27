@@ -1,7 +1,7 @@
 
 var x;
 var y;
-var chosenBomb = "B";
+var chosenBomb = "C";
 //console.log(chosenBomb);
 var workingRadius;
 
