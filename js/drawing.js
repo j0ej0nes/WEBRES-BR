@@ -2,7 +2,7 @@
 var x;
 var y;
 var chosenBomb = "C";
-//console.log(chosenBomb);
+var density = 5500;
 var workingRadius;
 
 //console.log(document.getElementById("bombButton1"));
@@ -53,18 +53,27 @@ $("#bombCanvas").click(function(e){
       drawCricle(x, y, LittleBoy.Radiation, "rgba(101, 214, 9, 0.5)");
       drawCricle(x, y, LittleBoy.Death, "rgba(214, 9, 9, 0.5)");
       workingRadius = LittleBoy.Injuries;
+      document.getElementById("dead").innerHTML = calcEffects(LittleBoy.Death);
+      document.getElementById("rad").innerHTML = calcEffects(LittleBoy.Radiation);
+      document.getElementById("inj").innerHTML = calcEffects(LittleBoy.Injuries);
       break;
     case "B":
       drawCricle(x, y, Davy.Injuries, "rgba(9, 156, 214, 0.5)");
       drawCricle(x, y, Davy.Radiation, "rgba(101, 214, 9, 0.5)");
       drawCricle(x, y, Davy.Death, "rgba(214, 9, 9, 0.5)");
       workingRadius = Davy.Injuries;
+      document.getElementById("dead").innerHTML = calcEffects(Davy.Death);
+      document.getElementById("rad").innerHTML = calcEffects(Davy.Radiation);
+      document.getElementById("inj").innerHTML = calcEffects(Davy.Injuries);
       break;
     case "C":
       drawCricle(x, y, IvyMike.Injuries, "rgba(9, 156, 214, 0.5)");
       drawCricle(x, y, IvyMike.Radiation, "rgba(101, 214, 9, 0.5)");
       drawCricle(x, y, IvyMike.Death, "rgba(214, 9, 9, 0.5)");
       workingRadius = IvyMike.Injuries;
+      document.getElementById("dead").innerHTML = calcEffects(IvyMike.Death);
+      document.getElementById("rad").innerHTML = calcEffects(IvyMike.Radiation);
+      document.getElementById("inj").innerHTML = calcEffects(IvyMike.Injuries);
       break;
     default:
       noBombSelected();
@@ -103,6 +112,14 @@ function clear (){
     var w = s.width;
     s.width = 10;
     s.width = w;
+}
+
+//This funtion takes the radius and calculates the area of the circle.
+//From there it calculates people affected within that radius and returns the value.
+function calcEffects (radius){
+var area = (Math.PI * radius * radius);
+var deadppl = area * density;
+return deadppl.toFixed();
 }
 
 
